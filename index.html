@@ -160,80 +160,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-LeetCodeFistDay" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/13/LeetCodeFistDay/">Leetcode</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/13/LeetCodeFistDay/" class="archive-article-date">
-  	<time datetime="2019-05-13T12:30:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目一"><a href="#题目一" class="headerlink" title="题目一"></a>题目一</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""Given nums = [2, 7, 11, 15], target = 9,</span></span><br><span class="line"><span class="string">Because nums[0] + nums[1] = 2 + 7 = 9,</span></span><br><span class="line"><span class="string">return [0, 1]."""</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution1</span>:</span></span><br><span class="line">	<span class="string">"""docstring for towSum"""</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">		d = &#123;&#125; <span class="comment">#用于存储nums中已经访问过的数字</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">			<span class="keyword">if</span> target - nums[i] <span class="keyword">in</span> d:</span><br><span class="line">				<span class="keyword">return</span> [d[target - nums[i]], i]</span><br><span class="line">			<span class="keyword">else</span>:</span><br><span class="line">				d[nums[i]] = i</span><br><span class="line"></span><br><span class="line"><span class="comment">#Brute Force</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">twoSum_BF</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">		lenNums = len(nums)</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(lenNums):</span><br><span class="line">			<span class="keyword">for</span> j <span class="keyword">in</span> range(i,lenNums):</span><br><span class="line">				<span class="keyword">if</span> nums[i] + nums[j] == target:</span><br><span class="line">					<span class="keyword">return</span> [i,j]</span><br></pre></td></tr></table></figure>
-<h2 id="题目二"><a href="#题目二" class="headerlink" title="题目二"></a>题目二</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</span></span><br><span class="line"><span class="string">Output: 7 -&gt; 0 -&gt; 8</span></span><br><span class="line"><span class="string">Explanation: 342 + 465 = 807."""</span></span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span>:</span></span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">         self.val = x</span><br><span class="line">         self.next = <span class="literal">None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">solution2</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">addTwoNumbers</span><span class="params">(self, l1, l2)</span>:</span></span><br><span class="line">		carry = <span class="number">0</span></span><br><span class="line">		root = n = ListNode(<span class="number">0</span>)</span><br><span class="line">		<span class="keyword">while</span> l1 <span class="keyword">or</span> l2 <span class="keyword">or</span> carry:</span><br><span class="line">			<span class="keyword">if</span> l1:</span><br><span class="line">				v1 = l1.val</span><br><span class="line">				l1 = l1.next</span><br><span class="line">			<span class="keyword">if</span> l2:</span><br><span class="line">				v2 = l2.val</span><br><span class="line">				l2 = l2.next</span><br><span class="line">			carry, val = divmod(v1+v2+carry, <span class="number">10</span>)</span><br><span class="line">			n.next = ListNode(val)</span><br><span class="line"></span><br><span class="line">			n = n.next</span><br><span class="line">		<span class="keyword">return</span> root.next</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/13/LeetCodeFistDay/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Python数据结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -292,6 +218,80 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/05/13/Python数据结构/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-LeetCodeFistDay" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/13/LeetCodeFistDay/">Leetcode</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/13/LeetCodeFistDay/" class="archive-article-date">
+  	<time datetime="2019-05-13T12:30:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目一"><a href="#题目一" class="headerlink" title="题目一"></a>题目一</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""Given nums = [2, 7, 11, 15], target = 9,</span></span><br><span class="line"><span class="string">Because nums[0] + nums[1] = 2 + 7 = 9,</span></span><br><span class="line"><span class="string">return [0, 1]."""</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution1</span>:</span></span><br><span class="line">	<span class="string">"""docstring for towSum"""</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">		d = &#123;&#125; <span class="comment">#用于存储nums中已经访问过的数字</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">			<span class="keyword">if</span> target - nums[i] <span class="keyword">in</span> d:</span><br><span class="line">				<span class="keyword">return</span> [d[target - nums[i]], i]</span><br><span class="line">			<span class="keyword">else</span>:</span><br><span class="line">				d[nums[i]] = i</span><br><span class="line"></span><br><span class="line"><span class="comment">#Brute Force</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">twoSum_BF</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">		lenNums = len(nums)</span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(lenNums):</span><br><span class="line">			<span class="keyword">for</span> j <span class="keyword">in</span> range(i,lenNums):</span><br><span class="line">				<span class="keyword">if</span> nums[i] + nums[j] == target:</span><br><span class="line">					<span class="keyword">return</span> [i,j]</span><br></pre></td></tr></table></figure>
+<h2 id="题目二"><a href="#题目二" class="headerlink" title="题目二"></a>题目二</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</span></span><br><span class="line"><span class="string">Output: 7 -&gt; 0 -&gt; 8</span></span><br><span class="line"><span class="string">Explanation: 342 + 465 = 807."""</span></span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span>:</span></span><br><span class="line">     <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">         self.val = x</span><br><span class="line">         self.next = <span class="literal">None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">solution2</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">addTwoNumbers</span><span class="params">(self, l1, l2)</span>:</span></span><br><span class="line">		carry = <span class="number">0</span></span><br><span class="line">		root = n = ListNode(<span class="number">0</span>)</span><br><span class="line">		<span class="keyword">while</span> l1 <span class="keyword">or</span> l2 <span class="keyword">or</span> carry:</span><br><span class="line">			<span class="keyword">if</span> l1:</span><br><span class="line">				v1 = l1.val</span><br><span class="line">				l1 = l1.next</span><br><span class="line">			<span class="keyword">if</span> l2:</span><br><span class="line">				v2 = l2.val</span><br><span class="line">				l2 = l2.next</span><br><span class="line">			carry, val = divmod(v1+v2+carry, <span class="number">10</span>)</span><br><span class="line">			n.next = ListNode(val)</span><br><span class="line"></span><br><span class="line">			n = n.next</span><br><span class="line">		<span class="keyword">return</span> root.next</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/13/LeetCodeFistDay/">展开全文 >></a>
         </p>
       
 
@@ -469,6 +469,160 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/04/30/我的第一篇博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-机器学习概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/30/机器学习概述/">机器学习引言</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/30/机器学习概述/" class="archive-article-date">
+  	<time datetime="2019-04-30T12:30:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="机器学习引言"><a href="#机器学习引言" class="headerlink" title="机器学习引言"></a>机器学习引言</h1><h2 id="What-is-Machine-Learning？（机器学习是什么？）"><a href="#What-is-Machine-Learning？（机器学习是什么？）" class="headerlink" title="What is Machine Learning？（机器学习是什么？）"></a>What is Machine Learning？（机器学习是什么？）</h2><p>Tom Mitchell: A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.</p>
+<p>一个程序被认为能从经验E中学习，解决任务T，达到性能度量值P, 当且仅当，有了经验E后，经过P评判，程序在处理T时性能有所提升。</p>
+<h2 id="Supervised-Learning（监督学习）"><a href="#Supervised-Learning（监督学习）" class="headerlink" title="Supervised Learning（监督学习）"></a>Supervised Learning（监督学习）</h2><p>监督学习指的就是我们给学习算法一个数据集，这个数据集由“正确答案”组成。<br>分类classification和回归regression</p>
+<h2 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h2><p>数据没有标签，聚类</p>
+<h2 id="单变量线性回归-Linear-Regression-with-One-Variable"><a href="#单变量线性回归-Linear-Regression-with-One-Variable" class="headerlink" title="单变量线性回归 Linear Regression with One Variable"></a>单变量线性回归 Linear Regression with One Variable</h2><p><img src="/img/supervisedLearning.png" alt="监督学习的工作方式"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/30/机器学习概述/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-超级思维" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/30/超级思维/">超级思维</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/30/超级思维/" class="archive-article-date">
+  	<time datetime="2019-04-30T12:30:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="把别人的思维变成自己的工具"><a href="#把别人的思维变成自己的工具" class="headerlink" title="把别人的思维变成自己的工具"></a>把别人的思维变成自己的工具</h1><p>万丈高楼平地起<br>成功就是把不可能变成可能</p>
+<h2 id="价值观"><a href="#价值观" class="headerlink" title="价值观"></a>价值观</h2><p>向善：永远怀有利他之心<br>简单：有话直说，敢想敢做<br>生猛：没有什么不可失去，唯有自信和强大不可失去<br>疼痛：任何成长都伴随着疼痛，痛并快乐着<br>意义感：看到事物的意义感，看到更多的可能性，感到生命的意义感</p>
+<p>找好理由，<br>公司企业文化比较历练，我的性格比较外向<br>立场坚定</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">思维</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/30/超级思维/">展开全文 >></a>
         </p>
       
 
@@ -754,7 +908,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color4">Hexo + Github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -762,11 +924,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Hexo + Github</a>
+                <a href="javascript:void(0)" class="js-tag color3">思维</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
