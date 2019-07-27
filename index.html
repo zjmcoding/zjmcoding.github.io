@@ -160,41 +160,32 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Python数据结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-机器学习概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/13/Python数据结构/">线性表</a>
+      <a class="article-title" href="/2019/05/26/机器学习概述/">机器学习引言</a>
     </h1>
   
 
         
-        <a href="/2019/05/13/Python数据结构/" class="archive-article-date">
-  	<time datetime="2019-05-13T12:30:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-13</time>
+        <a href="/2019/05/26/机器学习概述/" class="archive-article-date">
+  	<time datetime="2019-05-26T02:56:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><p>一个线性表是n个数据元素的<strong>有限</strong>序列。 一个数据元素可以由若干个<strong>数据项</strong>(item)组成。 这种情况下，数据元素称为<strong>记录</strong>(record), 含有大量记录的线性表又称<strong>文件</strong>(File)。<br>线性表的基本操作：</p>
-<ol>
-<li>Initiate(L)    初始化操作</li>
-<li>Length(L)    求线性表的长度</li>
-<li>Get(L)    取线性表中的元素</li>
-<li>Prior(L,elm) 求线性表中给定元素的前驱</li>
-<li>Next(L,elm)    求线性表中给定元素的后继</li>
-<li>Locate(L,x)    查找给定元素在线性表中的位置</li>
-<li>Insert(L,i,b)    在线性表L中第i个数据元素之前插入一个新的元素b</li>
-<li>Delete(L,i)    删除线性表中第i个数据元素</li>
-<li>Empty(L)    判断线性表是否为空</li>
-<li>Clear(L) 将线性表置空<br>较复杂的操作：如合并两个线性表</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListUnion</span>:</span></span><br><span class="line">	<span class="string">"""docstring for ListUnion"""</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">listUnion</span><span class="params">(self, L1, L2)</span>:</span></span><br><span class="line">		<span class="comment">#L = list(set(L1) | set(L2))</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> L2:</span><br><span class="line">			<span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> L1:</span><br><span class="line">				L1.append(i)</span><br><span class="line">		<span class="keyword">return</span> L1</span><br></pre></td></tr></table></figure>
-<h2 id="线性表的顺序存储结构"><a href="#线性表的顺序存储结构" class="headerlink" title="线性表的顺序存储结构"></a>线性表的顺序存储结构</h2>
+        <h1 id="机器学习引言"><a href="#机器学习引言" class="headerlink" title="机器学习引言"></a>机器学习引言</h1><h2 id="What-is-Machine-Learning？（机器学习是什么？）"><a href="#What-is-Machine-Learning？（机器学习是什么？）" class="headerlink" title="What is Machine Learning？（机器学习是什么？）"></a>What is Machine Learning？（机器学习是什么？）</h2><p>Tom Mitchell: A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.</p>
+<p>一个程序被认为能从经验E中学习，解决任务T，达到性能度量值P, 当且仅当，有了经验E后，经过P评判，程序在处理T时性能有所提升。</p>
+<h2 id="Supervised-Learning（监督学习）"><a href="#Supervised-Learning（监督学习）" class="headerlink" title="Supervised Learning（监督学习）"></a>Supervised Learning（监督学习）</h2><p>监督学习指的就是我们给学习算法一个数据集，这个数据集由“正确答案”组成。<br>分类classification和回归regression</p>
+<h2 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h2><p>数据没有标签，聚类</p>
+<h2 id="单变量线性回归-Linear-Regression-with-One-Variable"><a href="#单变量线性回归-Linear-Regression-with-One-Variable" class="headerlink" title="单变量线性回归 Linear Regression with One Variable"></a>单变量线性回归 Linear Regression with One Variable</h2><p><img src="/img/supervisedLearning.png" alt="监督学习的工作方式"><br>把训练集喂给学习算法，学习算法工作了，然后输出一个函数，通常表示为小写h。 h代表Hypothesis, h表示一个函数，h根据输入x值来得出y值，h 是一个从 x 到 y 的函数映射。 一种可能的表达方式为：$h_\theta(x) = \theta_0 + \theta_1x$<br>$$\sum_{i=1}^n \frac{1}{i^2} \quad and \quad \prod_{i=1}^n \frac{1}{i^2} \quad and \quad \bigcup_{i=1}^{2} R$$</p>
+
       
 
       
@@ -207,7 +198,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		
 		</ul>
@@ -217,7 +208,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/13/Python数据结构/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/05/26/机器学习概述/">展开全文 >></a>
         </p>
       
 
@@ -292,6 +283,93 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/05/13/LeetCodeFistDay/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Python数据结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/13/Python数据结构/">线性表</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/13/Python数据结构/" class="archive-article-date">
+  	<time datetime="2019-05-13T12:30:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><p>一个线性表是n个数据元素的<strong>有限</strong>序列。 一个数据元素可以由若干个<strong>数据项</strong>(item)组成。 这种情况下，数据元素称为<strong>记录</strong>(record), 含有大量记录的线性表又称<strong>文件</strong>(File)。<br>线性表的基本操作：</p>
+<ol>
+<li>Initiate(L)    初始化操作</li>
+<li>Length(L)    求线性表的长度</li>
+<li>Get(L)    取线性表中的元素</li>
+<li>Prior(L,elm) 求线性表中给定元素的前驱</li>
+<li>Next(L,elm)    求线性表中给定元素的后继</li>
+<li>Locate(L,x)    查找给定元素在线性表中的位置</li>
+<li>Insert(L,i,b)    在线性表L中第i个数据元素之前插入一个新的元素b</li>
+<li>Delete(L,i)    删除线性表中第i个数据元素</li>
+<li>Empty(L)    判断线性表是否为空</li>
+<li>Clear(L) 将线性表置空<br>较复杂的操作：如合并两个线性表</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListUnion</span>:</span></span><br><span class="line">	<span class="string">"""docstring for ListUnion"""</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">listUnion</span><span class="params">(self, L1, L2)</span>:</span></span><br><span class="line">		<span class="comment">#L = list(set(L1) | set(L2))</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> L2:</span><br><span class="line">			<span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> L1:</span><br><span class="line">				L1.append(i)</span><br><span class="line">		<span class="keyword">return</span> L1</span><br></pre></td></tr></table></figure>
+<h2 id="线性表的顺序存储结构"><a href="#线性表的顺序存储结构" class="headerlink" title="线性表的顺序存储结构"></a>线性表的顺序存储结构</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/13/Python数据结构/">展开全文 >></a>
         </p>
       
 
@@ -469,84 +547,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/04/30/我的第一篇博客/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-机器学习概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/30/机器学习概述/">机器学习引言</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/30/机器学习概述/" class="archive-article-date">
-  	<time datetime="2019-04-30T12:30:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="机器学习引言"><a href="#机器学习引言" class="headerlink" title="机器学习引言"></a>机器学习引言</h1><h2 id="What-is-Machine-Learning？（机器学习是什么？）"><a href="#What-is-Machine-Learning？（机器学习是什么？）" class="headerlink" title="What is Machine Learning？（机器学习是什么？）"></a>What is Machine Learning？（机器学习是什么？）</h2><p>Tom Mitchell: A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.</p>
-<p>一个程序被认为能从经验E中学习，解决任务T，达到性能度量值P, 当且仅当，有了经验E后，经过P评判，程序在处理T时性能有所提升。</p>
-<h2 id="Supervised-Learning（监督学习）"><a href="#Supervised-Learning（监督学习）" class="headerlink" title="Supervised Learning（监督学习）"></a>Supervised Learning（监督学习）</h2><p>监督学习指的就是我们给学习算法一个数据集，这个数据集由“正确答案”组成。<br>分类classification和回归regression</p>
-<h2 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h2><p>数据没有标签，聚类</p>
-<h2 id="单变量线性回归-Linear-Regression-with-One-Variable"><a href="#单变量线性回归-Linear-Regression-with-One-Variable" class="headerlink" title="单变量线性回归 Linear Regression with One Variable"></a>单变量线性回归 Linear Regression with One Variable</h2><p><img src="/img/supervisedLearning.png" alt="监督学习的工作方式"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/30/机器学习概述/">展开全文 >></a>
         </p>
       
 
@@ -908,6 +908,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Hexo + Github</a>
               </li>
              
@@ -916,19 +924,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思维</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
