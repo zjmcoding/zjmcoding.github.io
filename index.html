@@ -81,8 +81,6 @@
 		        
 					<a class="weibo" target="_blank" href="https://weibo.com/3655829167/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/zjing-ming/activities" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 					<a class="mail" target="_blank" href="/zjminglove@gmail.com" title="mail"><i class="icon-mail"></i></a>
@@ -125,8 +123,6 @@
 						<a class="github" target="_blank" href="https://github.com/zjmcoding" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="https://weibo.com/3655829167/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/zjing-ming/activities" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
@@ -265,81 +261,6 @@
 
 
   
-    <article id="post-LeetCode刷题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/15/LeetCode刷题/">Leetcode</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/15/LeetCode刷题/" class="archive-article-date">
-  	<time datetime="2019-06-15T14:38:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="LeetCode-53"><a href="#LeetCode-53" class="headerlink" title="LeetCode 53"></a>LeetCode 53</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** 蛮力法解决方法 </span></span><br><span class="line"><span class="comment">	<span class="doctag">@author</span> zjmcoding</span></span><br><span class="line"><span class="comment">	<span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[], nums)</span> </span>&#123; <span class="comment">//最大和的连续子数组</span></span><br><span class="line">		<span class="keyword">int</span> max = Integer.MIN_VALUE;	<span class="comment">/* 初始化，对最大值附一个系统中的最小值*/</span></span><br><span class="line">		<span class="keyword">int</span> sum = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i) &#123; </span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; nums.length; ++i) &#123;</span><br><span class="line">				sum += nums[j];</span><br><span class="line">				<span class="keyword">if</span> (sum &gt; max)</span><br><span class="line">					max = sum;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> max;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*** 当我们发现蛮力法的时间复杂度太高,我们可以尝试将复杂度降到O(n),如何降至O(n)呢？</span></span><br><span class="line"><span class="comment">	我们可以考虑在蛮力法的基础上考虑改进，去掉一些不必要的重复，例如数组中连续子数组</span></span><br><span class="line"><span class="comment">	之和小于0，则对于后续的数组累加没有贡献，我们则可以考虑直接去掉跳过重复计算小于零的部分。</span></span><br><span class="line"><span class="comment">	<span class="doctag">@author</span> zjmcoding</span></span><br><span class="line"><span class="comment">	<span class="doctag">@version</span> 2.0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[], nums)</span> </span>&#123; <span class="comment">//最大和的连续子数组</span></span><br><span class="line">		<span class="keyword">int</span> max = Integer.MIN_VALUE;	<span class="comment">/* 初始化，对最大值附一个系统中的最小值*/</span></span><br><span class="line">		<span class="keyword">int</span> sum = <span class="number">0</span>;					<span class="comment">//初始化，sum 赋值为零</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i) &#123; <span class="comment">//对数组中的元素访问一遍，时间复杂度O(n)</span></span><br><span class="line">			<span class="keyword">if</span> (sum &lt; <span class="number">0</span>)	<span class="comment">//如果 sum 的值小于零，那么它对于后续的加法没有贡献，因此直接赋值为零</span></span><br><span class="line">				sum = <span class="number">0</span>;</span><br><span class="line">			sum += nums[i];	<span class="comment">// 对数组中的元素依次累加</span></span><br><span class="line">			<span class="keyword">if</span> (sum &gt; max)		<span class="comment">// 如果当前的连续子数组的和大于最大值，则更新最大值。</span></span><br><span class="line">				max = sum;		</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> max;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="LeetCode-152"><a href="#LeetCode-152" class="headerlink" title="LeetCode 152"></a>LeetCode 152</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** 蛮力法解决方法 </span></span><br><span class="line"><span class="comment">	<span class="doctag">@author</span> zjmcoding</span></span><br><span class="line"><span class="comment">	<span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123; <span class="comment">//最大积的连续子数组</span></span><br><span class="line">    	<span class="keyword">int</span> max = Integer.MIN_VALUE;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i) &#123;</span><br><span class="line">    		<span class="keyword">int</span> multiply = <span class="number">1</span>;</span><br><span class="line">    		<span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; nums.length; ++j) &#123;</span><br><span class="line">    			multiply *= nums[j];</span><br><span class="line">    			<span class="keyword">if</span> (multiply &gt; max)</span><br><span class="line">    				max = multiply;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*** 蛮力法的时间复杂度太高，我们考虑改进 </span></span><br><span class="line"><span class="comment">	<span class="doctag">@author</span> zjmcoding</span></span><br><span class="line"><span class="comment">	<span class="doctag">@version</span> 2.0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123; <span class="comment">//最大积的连续子数组</span></span><br><span class="line">    	<span class="keyword">int</span> max = Integer.MIN_VALUE;</span><br><span class="line">    	<span class="keyword">int</span> imin = <span class="number">1</span>, imax = <span class="number">1</span>;		<span class="comment">//初始化两个变量分别记录当前的最大值与最小值</span></span><br><span class="line"></span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i) &#123;</span><br><span class="line">    		<span class="keyword">if</span> (nums[i] &lt; <span class="number">0</span>) &#123;		<span class="comment">// 当遇见负数时，最大值变为最小值，最小值变为最大值，因此交换两个值</span></span><br><span class="line">    			tmp = imax;</span><br><span class="line">    			imax = imin;</span><br><span class="line">    			imin = tmp;</span><br><span class="line">    		&#125;</span><br><span class="line"></span><br><span class="line">    		imax = Math.max(imax * nums[i], nums[i]); <span class="comment">//记录当前最大值</span></span><br><span class="line">    		imin = Math.min(imin * nums[i], nums[i]);	<span class="comment">//记录当前最小值</span></span><br><span class="line">    		max = Math.max(max, imax);	<span class="comment">// 比较最大值与当前最大值并保存最大值</span></span><br><span class="line">    		</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="LeetCode-978"><a href="#LeetCode-978" class="headerlink" title="LeetCode 978"></a>LeetCode 978</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*** 对于这个问题，首先我们必须读懂问题，其实这个问题本质上是找出来一个符号连续变化的子数组</span></span><br><span class="line"><span class="comment">	<span class="doctag">@author</span> wangzi6147</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	<span class="doctag">@version</span> 2.0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxTurbulenceSize</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123; 	<span class="comment">//最大湍流连续子序列</span></span><br><span class="line">    	<span class="comment">/*初始化，inc 表示当前元素相对于前一个元素增加, 即 &gt;</span></span><br><span class="line"><span class="comment">    			dec 表示当前元素相对于前一个元素减少，即 &lt;</span></span><br><span class="line"><span class="comment">    			result 表示最大湍流连续子数组长度。</span></span><br><span class="line"><span class="comment">    	*/</span></span><br><span class="line">        <span class="keyword">int</span> inc = <span class="number">1</span>, dec = <span class="number">1</span>, result = <span class="number">1</span>;	</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; A.length; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[i] &lt; A[i-<span class="number">1</span>]) &#123;	<span class="comment">//当前元素的值小于前一个元素</span></span><br><span class="line">                dec = inc + <span class="number">1</span>;		<span class="comment">//那么小于号的关联的元素个数等于inc + 1</span></span><br><span class="line">                inc = <span class="number">1</span>;			<span class="comment">//此时，inc 的个数赋值为 1</span></span><br><span class="line">            &#125; </span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (A[i] &gt; A[i-<span class="number">1</span>]) &#123;</span><br><span class="line">                inc = dec + <span class="number">1</span>;</span><br><span class="line">                dec = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;				<span class="comment">// 也就是当前元素与前一个元素相等时，丢弃之前dec inc 的值，重新开始寻找最大湍流连续子序列。</span></span><br><span class="line">                dec = <span class="number">1</span>;</span><br><span class="line">                inc = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            result = Math.max(result, Math.max(dec, inc)); <span class="comment">//输出最大的湍流连续子序列长度。</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/15/LeetCode刷题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -406,6 +327,81 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/06/15/Redis/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-LeetCode刷题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/15/LeetCode刷题/">Leetcode</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/15/LeetCode刷题/" class="archive-article-date">
+  	<time datetime="2019-06-15T14:38:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="LeetCode-53"><a href="#LeetCode-53" class="headerlink" title="LeetCode 53"></a>LeetCode 53</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** 蛮力法解决方法 </span></span><br><span class="line"><span class="comment">	<span class="doctag">@author</span> zjmcoding</span></span><br><span class="line"><span class="comment">	<span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[], nums)</span> </span>&#123; <span class="comment">//最大和的连续子数组</span></span><br><span class="line">		<span class="keyword">int</span> max = Integer.MIN_VALUE;	<span class="comment">/* 初始化，对最大值附一个系统中的最小值*/</span></span><br><span class="line">		<span class="keyword">int</span> sum = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i) &#123; </span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; nums.length; ++i) &#123;</span><br><span class="line">				sum += nums[j];</span><br><span class="line">				<span class="keyword">if</span> (sum &gt; max)</span><br><span class="line">					max = sum;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> max;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*** 当我们发现蛮力法的时间复杂度太高,我们可以尝试将复杂度降到O(n),如何降至O(n)呢？</span></span><br><span class="line"><span class="comment">	我们可以考虑在蛮力法的基础上考虑改进，去掉一些不必要的重复，例如数组中连续子数组</span></span><br><span class="line"><span class="comment">	之和小于0，则对于后续的数组累加没有贡献，我们则可以考虑直接去掉跳过重复计算小于零的部分。</span></span><br><span class="line"><span class="comment">	<span class="doctag">@author</span> zjmcoding</span></span><br><span class="line"><span class="comment">	<span class="doctag">@version</span> 2.0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[], nums)</span> </span>&#123; <span class="comment">//最大和的连续子数组</span></span><br><span class="line">		<span class="keyword">int</span> max = Integer.MIN_VALUE;	<span class="comment">/* 初始化，对最大值附一个系统中的最小值*/</span></span><br><span class="line">		<span class="keyword">int</span> sum = <span class="number">0</span>;					<span class="comment">//初始化，sum 赋值为零</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i) &#123; <span class="comment">//对数组中的元素访问一遍，时间复杂度O(n)</span></span><br><span class="line">			<span class="keyword">if</span> (sum &lt; <span class="number">0</span>)	<span class="comment">//如果 sum 的值小于零，那么它对于后续的加法没有贡献，因此直接赋值为零</span></span><br><span class="line">				sum = <span class="number">0</span>;</span><br><span class="line">			sum += nums[i];	<span class="comment">// 对数组中的元素依次累加</span></span><br><span class="line">			<span class="keyword">if</span> (sum &gt; max)		<span class="comment">// 如果当前的连续子数组的和大于最大值，则更新最大值。</span></span><br><span class="line">				max = sum;		</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> max;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="LeetCode-152"><a href="#LeetCode-152" class="headerlink" title="LeetCode 152"></a>LeetCode 152</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** 蛮力法解决方法 </span></span><br><span class="line"><span class="comment">	<span class="doctag">@author</span> zjmcoding</span></span><br><span class="line"><span class="comment">	<span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123; <span class="comment">//最大积的连续子数组</span></span><br><span class="line">    	<span class="keyword">int</span> max = Integer.MIN_VALUE;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i) &#123;</span><br><span class="line">    		<span class="keyword">int</span> multiply = <span class="number">1</span>;</span><br><span class="line">    		<span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; nums.length; ++j) &#123;</span><br><span class="line">    			multiply *= nums[j];</span><br><span class="line">    			<span class="keyword">if</span> (multiply &gt; max)</span><br><span class="line">    				max = multiply;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*** 蛮力法的时间复杂度太高，我们考虑改进 </span></span><br><span class="line"><span class="comment">	<span class="doctag">@author</span> zjmcoding</span></span><br><span class="line"><span class="comment">	<span class="doctag">@version</span> 2.0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123; <span class="comment">//最大积的连续子数组</span></span><br><span class="line">    	<span class="keyword">int</span> max = Integer.MIN_VALUE;</span><br><span class="line">    	<span class="keyword">int</span> imin = <span class="number">1</span>, imax = <span class="number">1</span>;		<span class="comment">//初始化两个变量分别记录当前的最大值与最小值</span></span><br><span class="line"></span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; ++i) &#123;</span><br><span class="line">    		<span class="keyword">if</span> (nums[i] &lt; <span class="number">0</span>) &#123;		<span class="comment">// 当遇见负数时，最大值变为最小值，最小值变为最大值，因此交换两个值</span></span><br><span class="line">    			tmp = imax;</span><br><span class="line">    			imax = imin;</span><br><span class="line">    			imin = tmp;</span><br><span class="line">    		&#125;</span><br><span class="line"></span><br><span class="line">    		imax = Math.max(imax * nums[i], nums[i]); <span class="comment">//记录当前最大值</span></span><br><span class="line">    		imin = Math.min(imin * nums[i], nums[i]);	<span class="comment">//记录当前最小值</span></span><br><span class="line">    		max = Math.max(max, imax);	<span class="comment">// 比较最大值与当前最大值并保存最大值</span></span><br><span class="line">    		</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="LeetCode-978"><a href="#LeetCode-978" class="headerlink" title="LeetCode 978"></a>LeetCode 978</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*** 对于这个问题，首先我们必须读懂问题，其实这个问题本质上是找出来一个符号连续变化的子数组</span></span><br><span class="line"><span class="comment">	<span class="doctag">@author</span> wangzi6147</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	<span class="doctag">@version</span> 2.0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxTurbulenceSize</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123; 	<span class="comment">//最大湍流连续子序列</span></span><br><span class="line">    	<span class="comment">/*初始化，inc 表示当前元素相对于前一个元素增加, 即 &gt;</span></span><br><span class="line"><span class="comment">    			dec 表示当前元素相对于前一个元素减少，即 &lt;</span></span><br><span class="line"><span class="comment">    			result 表示最大湍流连续子数组长度。</span></span><br><span class="line"><span class="comment">    	*/</span></span><br><span class="line">        <span class="keyword">int</span> inc = <span class="number">1</span>, dec = <span class="number">1</span>, result = <span class="number">1</span>;	</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; A.length; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[i] &lt; A[i-<span class="number">1</span>]) &#123;	<span class="comment">//当前元素的值小于前一个元素</span></span><br><span class="line">                dec = inc + <span class="number">1</span>;		<span class="comment">//那么小于号的关联的元素个数等于inc + 1</span></span><br><span class="line">                inc = <span class="number">1</span>;			<span class="comment">//此时，inc 的个数赋值为 1</span></span><br><span class="line">            &#125; </span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (A[i] &gt; A[i-<span class="number">1</span>]) &#123;</span><br><span class="line">                inc = dec + <span class="number">1</span>;</span><br><span class="line">                dec = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;				<span class="comment">// 也就是当前元素与前一个元素相等时，丢弃之前dec inc 的值，重新开始寻找最大湍流连续子序列。</span></span><br><span class="line">                dec = <span class="number">1</span>;</span><br><span class="line">                inc = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            result = Math.max(result, Math.max(dec, inc)); <span class="comment">//输出最大的湍流连续子序列长度。</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/15/LeetCode刷题/">展开全文 >></a>
         </p>
       
 
@@ -775,6 +771,82 @@
 
 
   
+    <article id="post-我的第一篇博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/30/我的第一篇博客/">我的第一篇博客</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/30/我的第一篇博客/" class="archive-article-date">
+  	<time datetime="2019-04-30T12:30:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="四月的最后一天"><a href="#四月的最后一天" class="headerlink" title="四月的最后一天"></a>四月的最后一天</h2><p>今天是四月的最后一天，我搭建了自己的个人博客很开心!!</p>
+<h2 id="记得写博客"><a href="#记得写博客" class="headerlink" title="记得写博客"></a>记得写博客</h2><p>以后的日子里，每一天，我都要学会写Blog, 一定要学会坚持。</p>
+<h2 id="记得和小素庆祝每一天"><a href="#记得和小素庆祝每一天" class="headerlink" title="记得和小素庆祝每一天"></a>记得和小素庆祝每一天</h2><p>你们两个人在一起便是上天的缘分，要好好珍惜，不要让素素悲伤。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/30/我的第一篇博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-明明学Python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -943,82 +1015,6 @@
 
 
   
-    <article id="post-我的第一篇博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/30/我的第一篇博客/">我的第一篇博客</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/30/我的第一篇博客/" class="archive-article-date">
-  	<time datetime="2019-04-30T12:30:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="四月的最后一天"><a href="#四月的最后一天" class="headerlink" title="四月的最后一天"></a>四月的最后一天</h2><p>今天是四月的最后一天，我搭建了自己的个人博客很开心!!</p>
-<h2 id="记得写博客"><a href="#记得写博客" class="headerlink" title="记得写博客"></a>记得写博客</h2><p>以后的日子里，每一天，我都要学会写Blog, 一定要学会坚持。</p>
-<h2 id="记得和小素庆祝每一天"><a href="#记得和小素庆祝每一天" class="headerlink" title="记得和小素庆祝每一天"></a>记得和小素庆祝每一天</h2><p>你们两个人在一起便是上天的缘分，要好好珍惜，不要让素素悲伤。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/30/我的第一篇博客/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1128,11 +1124,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">Hexo + Github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1141,10 +1141,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思维</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Hexo + Github</a>
               </li>
              
               <li class="article-tag-list-item">
