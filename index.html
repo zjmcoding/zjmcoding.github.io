@@ -180,37 +180,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>打开终端：ctrl+alt+t<br>清屏：ctrl+l<br>在终端在退出锁定：ctrl+c</p>
+        <p>##常用快捷键<br>打开终端：ctrl+alt+t<br>清屏：ctrl+l<br>在终端在退出锁定：ctrl+c</p>
 <p>目录：又称为文件夹，是包含所有的文件<br>目录创建规则：<br>1、大小是256<br>2、不能包含特殊字符<br>3、见名知义<br>路径：是反应目录和文件的位置<br>[绝对位置]文件位置：windows：盘符：\文件夹\文件.avi<br>     linux: /home/主文件夹/0520/day01/a</p>
 <p>[相对位置]当前目录所在位置为 0520 ./day01/a<br>        day03 ../day01/a</p>
-<pre><code>.\c...\01jibi\biji.txt
-..\c...\01biji\biji.txt
-</code></pre><p>文件：在计算机中一切皆文件<br>在windows中区分文件可以通过扩展名来区分 .exe .txt .ppt<br>在Linux中文件没有扩展名 可以通过颜色区分 也可以通过命令来区分 file 文件名</p>
-<p>在Linux中文件分为：<br>普通文件<br>目录文件<br>设备文件   字符设备文件 块设备文件<br>管道文件<br>链接文件</p>
-<p>文件权限：<br>读【r】read<br>写【w】write<br>执行【x】execute</p>
-<p>d rwx rwx rwx 分为三组<br>d 目录 成为文件类型<br>第一组：文件的所属用户<br>第二组：文件的所属组<br>第三组：其他用户</p>
-<p>Linux命令：<br>格式 ：命令 选项  参数 </p>
-<p>帮助：<br>命令 –help<br>man 命令</p>
-<p>快捷键：<br>tab 智能补全   如果没有重复的选项 自动补全 如果有重复项 按两下tab 显示列表<br>↑ ↓ 历史记录 查看之前敲过的命令 关闭后还会提示 但是同时打开两个终端 相互不会提示</p>
-<p>常用命令：<br>ls 【查看文件】<br>格式：<br>ls -a 查看所有文件包含隐藏文件<br>ls -l 以列表形式查看文件，不包含隐藏文件<br>ls -lh 以列表形式查看文件，不包含隐藏文件 ，按照1024倍数显示{KB MB GB}<br>ls -all以列表形式查看文件，包含隐藏文件 快捷方式【ll】</p>
-<p>通配符：</p>
-<ul>
-<li>匹配任意多个字符【0-256】  a*  一个以上字符 256一下<br>? 匹配任意一个字符  a？ 两个字符<br>[a-z] 区间法 匹配a到z的所有字符 只能确定一个字符<br>[abcde] 穷举法 权值法 匹配abcde的所有字符 只能确定一个字符</li>
-</ul>
-<p>切换工作目录：<br>cd 【切换工作目录】cd 目录<br>格式：<br>cd 切换到用户主目录<br>cd ~ 切换到当前用户的主目录<br>cd .. 切换到上级目录<br>cd .  切换到当前目录<br>cd -  切换到上一次目录</p>
-<p>创建目录：<br>mkdir 目录名 -p 递归创建<br>rmdir 目录名  目录一定是空的<br>rm 文件  -i询问 -r 递归传出</p>
-<p>链接：<br>格式：<br>ln 源文件 链接文件 硬链接<br>ln -s 源文件 链接文件 软连接<br>硬链接文件占磁盘空间 但是删除源文件不会影响硬链接文件<br>软链接文件不占磁盘空间 但是删除源文件会影响软链接文件</p>
-<p>硬链接和拷贝（复制）区别 无论你修改了哪一个链接之后的文件 两个文件都会改变 保持一致  但是拷贝不会<br>1、改变软链接文件就是相当于间接的改变了源文件<br>2、查看文件时默认链接数为1 如果有链接一次递增<br>3、如果创建的软链接文件和源文件在不同的目录下，需要使用绝对路径</p>
-<p>文本搜索：<br>grep  ‘搜索内容’ 文件名<br>-n 显示行号<br>-v 反选<br>-i 忽略大小写</p>
-<p>通配符：<br>【^a】以a为起始的字符搜索文件<br>【a$】以a为结尾的字符搜索文件<br>【.】 配匹任意一个非换行的字符</p>
-<h2 id="【-】匹配任意字符（大于0的整数）"><a href="#【-】匹配任意字符（大于0的整数）" class="headerlink" title="【*】匹配任意字符（大于0的整数）"></a>【*】匹配任意字符（大于0的整数）</h2><p>文件搜索：<br>find 目录 参数 文件名（可以使用通配符）<br>-name 文件名<br>-size 大小</p>
-<h2 id="perm-rwx"><a href="#perm-rwx" class="headerlink" title="-perm rwx"></a>-perm rwx</h2><p>-<br>归档：<br>tar -cvf 归档文件名.tar 文件1 文件2  目录1 目录2<br>解归档：<br>tar -xvf 归档文件名.tar  -C 路径</p>
-<p>压缩：<br>gzip 归档文件名.tar  生成了一个文件 归档文件名.tar.gz 文件大小小于归档文件大小 归档文件名.tar不存在了<br>解压缩：<br>gzip -d 归档文件名.tar.gz 生成了一个文件 归档文件名.tar</p>
-<p>一步归档压缩：<br>tar -czvf 文件名.tar.gz 文件1 文件2 目录1 目录2</p>
-<p>一步解归档压缩：<br>tar -xzvf 文件名.tar.gz -C 路径</p>
-<p>bzip2压缩：<br>tar -cjvf 文件名.tar.bz2 文件1 文件2 目录1 目录2<br>bzip2解压缩：<br>tar -xjvf 文件名.tar.bz2 -C 路径</p>
-<p>zip压缩：<br>zip 文件名 文件1 文件2 目录1 目录2  生成一个文件为：文件名.zip<br>unzip解压缩：<br>unzip 文件名.zip -C 路径</p>
-
+        
+          <a class="article-more-a" href="/2019/07/27/Linux/#more">more >></a>
+        
       
 
       
@@ -234,53 +209,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/07/27/Linux/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/24/Redis/">展开全文 >></a>
         </p>
       
 
@@ -356,6 +284,101 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/06/15/LeetCode刷题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/15/Redis/">Redis</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/15/Redis/" class="archive-article-date">
+  	<time datetime="2019-06-15T14:38:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Redis是Remote Dictionary Server(远程数据服务)的缩写</p>
+<p>缓存的两种形式，页面缓存经常用在CMS内存管理系统中；</p>
+<p>数据缓存经常用在页面的具体数据里边</p>
+<p>缓存减少数据库的负载</p>
+<h2 id="Redis-内存缓存数据库"><a href="#Redis-内存缓存数据库" class="headerlink" title="Redis 内存缓存数据库"></a>Redis 内存缓存数据库</h2><p>key 的操作：除了’\n’与空格不能作为名字的组成内容外，其他内容可以作为key的名字部分。名字长度不做要求</p>
+<p>list类型是一个双向链表，通过push,pop操作从链表的头部或者尾部添加删除元素</p>
+<p>该list链表类型应用场合：</p>
+<p>通过list链表保存登陆系统中最新的前k个用户。</p>
+<p>set 是string类型的无序集合</p>
+<p>sort set 类型适合场合：<br>获得热门帖子(回复量)信息：select * from message order by backnum desc limit 5;<br>(以上需求可以通过简单的sql语句实现，但是sql语句比较耗费mysql数据库资源)</p>
+<p>排序集合中的每个元素都是值、权的组合<br>(之前的set集合类型每个元素就只有一个值)</p>
+<p>zadd hostmessage 102 11<br>zadd hostmessage 141 12<br>zadd hostmessage 159 13<br>zadd hostmessage 72 14<br>zadd hostmessage 203 15<br>zadd hostmessage 184 16<br>zrevrange hotmessage 0 100 </p>
+<p>给集合中每增加一个新的元素，删除一个旧的最小数据<br>zremrangebyrank key min max<br>zremrangebyrank hotmessage 0 0</p>
+<p>zcard 返回集合中元素的个数</p>
+<h2 id="微博热搜、知乎热搜等等排名都可以用sort-set-类型进行实现和管理"><a href="#微博热搜、知乎热搜等等排名都可以用sort-set-类型进行实现和管理" class="headerlink" title="微博热搜、知乎热搜等等排名都可以用sort set 类型进行实现和管理"></a>微博热搜、知乎热搜等等排名都可以用sort set 类型进行实现和管理</h2><p>##持久化功能</p>
+<p>redis为了内部数据的安全考虑，回把自身的数据以文件的形式保存在硬盘中一份，在服务器重启之后会自动把硬盘的数据恢复到内存（redis)的里边。<br>数据保存到硬盘的过程就成为“持久化”效果</p>
+<h3 id="snap-shotting-快速持久化"><a href="#snap-shotting-快速持久化" class="headerlink" title="snap shotting 快速持久化"></a>snap shotting 快速持久化</h3><p>该持久化默认开启，一次性把redistribution中全部的数据保存一份存储在硬盘中，如果数据非常多（10-20G）就<font color="#FF0000">不适合频繁</font>进行该持久化操作。</p>
+<p>快照持久化在本地硬盘保留的数据备份文件：<br>dump.rdb</p>
+<p>save 900 1 #900秒内如果超过1个key被修改，则发起快照保存<br>save 300 10 #300秒内超过10个key被修改，发起快照保存<br>save 60 1000<br>数据修改的频率非常高，备份的频率也高<br>数据修改的频率低，备份的频率也低；</p>
+<h3 id="append-only-file"><a href="#append-only-file" class="headerlink" title="append only file"></a>append only file</h3><p>本质：把用户执行的每个’写‘指令（添加、修改、删除）都在文件中备份，还原是还是执行具体写指令而已</p>
+<p>为aof备份进行优化处理<br>对appendonly.aof文件内容进行优化压缩处理：（例如多个incr指令变为一个set指令）。</p>
+<p>快照备份与aof备份是一个互补的关系， 快照持久化是一个备份时间段跨度比较的持久化方法，而aof是一个精细备份。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Redis数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/15/Redis/">展开全文 >></a>
         </p>
       
 
@@ -725,82 +748,6 @@
 
 
   
-    <article id="post-我的第一篇博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/30/我的第一篇博客/">我的第一篇博客</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/30/我的第一篇博客/" class="archive-article-date">
-  	<time datetime="2019-04-30T12:30:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="四月的最后一天"><a href="#四月的最后一天" class="headerlink" title="四月的最后一天"></a>四月的最后一天</h2><p>今天是四月的最后一天，我搭建了自己的个人博客很开心!!</p>
-<h2 id="记得写博客"><a href="#记得写博客" class="headerlink" title="记得写博客"></a>记得写博客</h2><p>以后的日子里，每一天，我都要学会写Blog, 一定要学会坚持。</p>
-<h2 id="记得和小素庆祝每一天"><a href="#记得和小素庆祝每一天" class="headerlink" title="记得和小素庆祝每一天"></a>记得和小素庆祝每一天</h2><p>你们两个人在一起便是上天的缘分，要好好珍惜，不要让素素悲伤。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/30/我的第一篇博客/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-超级思维" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -848,6 +795,82 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/04/30/超级思维/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-我的第一篇博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/30/我的第一篇博客/">我的第一篇博客</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/30/我的第一篇博客/" class="archive-article-date">
+  	<time datetime="2019-04-30T12:30:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="四月的最后一天"><a href="#四月的最后一天" class="headerlink" title="四月的最后一天"></a>四月的最后一天</h2><p>今天是四月的最后一天，我搭建了自己的个人博客很开心!!</p>
+<h2 id="记得写博客"><a href="#记得写博客" class="headerlink" title="记得写博客"></a>记得写博客</h2><p>以后的日子里，每一天，我都要学会写Blog, 一定要学会坚持。</p>
+<h2 id="记得和小素庆祝每一天"><a href="#记得和小素庆祝每一天" class="headerlink" title="记得和小素庆祝每一天"></a>记得和小素庆祝每一天</h2><p>你们两个人在一起便是上天的缘分，要好好珍惜，不要让素素悲伤。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/30/我的第一篇博客/">展开全文 >></a>
         </p>
       
 
@@ -1070,15 +1093,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Hexo + Github</a>
+                <a href="javascript:void(0)" class="js-tag color4">Redis数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1086,11 +1105,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">Hexo + Github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">

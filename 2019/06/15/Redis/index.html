@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Jingming Zhang</title>
+  <title>Redis | Jingming Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="Jingming Zhang">
-<meta property="og:url" content="http://yoursite.com/2019/07/24/Redis/index.html">
+  <meta name="description" content="Redis是Remote Dictionary Server(远程数据服务)的缩写 缓存的两种形式，页面缓存经常用在CMS内存管理系统中； 数据缓存经常用在页面的具体数据里边 缓存减少数据库的负载 Redis 内存缓存数据库key 的操作：除了’\n’与空格不能作为名字的组成内容外，其他内容可以作为key的名字部分。名字长度不做要求 list类型是一个双向链表，通过push,pop操作从链表的头部">
+<meta name="keywords" content="Redis数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis">
+<meta property="og:url" content="http://yoursite.com/2019/06/15/Redis/index.html">
 <meta property="og:site_name" content="Jingming Zhang">
+<meta property="og:description" content="Redis是Remote Dictionary Server(远程数据服务)的缩写 缓存的两种形式，页面缓存经常用在CMS内存管理系统中； 数据缓存经常用在页面的具体数据里边 缓存减少数据库的负载 Redis 内存缓存数据库key 的操作：除了’\n’与空格不能作为名字的组成内容外，其他内容可以作为key的名字部分。名字长度不做要求 list类型是一个双向链表，通过push,pop操作从链表的头部">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-24T10:24:44.421Z">
+<meta property="og:updated_time" content="2019-07-28T01:10:33.998Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jingming Zhang">
+<meta name="twitter:title" content="Redis">
+<meta name="twitter:description" content="Redis是Remote Dictionary Server(远程数据服务)的缩写 缓存的两种形式，页面缓存经常用在CMS内存管理系统中； 数据缓存经常用在页面的具体数据里边 缓存减少数据库的负载 Redis 内存缓存数据库key 的操作：除了’\n’与空格不能作为名字的组成内容外，其他内容可以作为key的名字部分。名字长度不做要求 list类型是一个双向链表，通过push,pop操作从链表的头部">
   
     <link rel="alternative" href="/atom.xml" title="Jingming Zhang" type="application/atom+xml">
   
@@ -162,9 +166,46 @@
             <article id="post-Redis" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Redis
+    </h1>
+  
+
+        
+        <a href="/2019/06/15/Redis/" class="archive-article-date">
+  	<time datetime="2019-06-15T14:38:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-15</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>Redis是Remote Dictionary Server(远程数据服务)的缩写</p>
+<p>缓存的两种形式，页面缓存经常用在CMS内存管理系统中；</p>
+<p>数据缓存经常用在页面的具体数据里边</p>
+<p>缓存减少数据库的负载</p>
+<h2 id="Redis-内存缓存数据库"><a href="#Redis-内存缓存数据库" class="headerlink" title="Redis 内存缓存数据库"></a>Redis 内存缓存数据库</h2><p>key 的操作：除了’\n’与空格不能作为名字的组成内容外，其他内容可以作为key的名字部分。名字长度不做要求</p>
+<p>list类型是一个双向链表，通过push,pop操作从链表的头部或者尾部添加删除元素</p>
+<p>该list链表类型应用场合：</p>
+<p>通过list链表保存登陆系统中最新的前k个用户。</p>
+<p>set 是string类型的无序集合</p>
+<p>sort set 类型适合场合：<br>获得热门帖子(回复量)信息：select * from message order by backnum desc limit 5;<br>(以上需求可以通过简单的sql语句实现，但是sql语句比较耗费mysql数据库资源)</p>
+<p>排序集合中的每个元素都是值、权的组合<br>(之前的set集合类型每个元素就只有一个值)</p>
+<p>zadd hostmessage 102 11<br>zadd hostmessage 141 12<br>zadd hostmessage 159 13<br>zadd hostmessage 72 14<br>zadd hostmessage 203 15<br>zadd hostmessage 184 16<br>zrevrange hotmessage 0 100 </p>
+<p>给集合中每增加一个新的元素，删除一个旧的最小数据<br>zremrangebyrank key min max<br>zremrangebyrank hotmessage 0 0</p>
+<p>zcard 返回集合中元素的个数</p>
+<h2 id="微博热搜、知乎热搜等等排名都可以用sort-set-类型进行实现和管理"><a href="#微博热搜、知乎热搜等等排名都可以用sort-set-类型进行实现和管理" class="headerlink" title="微博热搜、知乎热搜等等排名都可以用sort set 类型进行实现和管理"></a>微博热搜、知乎热搜等等排名都可以用sort set 类型进行实现和管理</h2><p>##持久化功能</p>
+<p>redis为了内部数据的安全考虑，回把自身的数据以文件的形式保存在硬盘中一份，在服务器重启之后会自动把硬盘的数据恢复到内存（redis)的里边。<br>数据保存到硬盘的过程就成为“持久化”效果</p>
+<h3 id="snap-shotting-快速持久化"><a href="#snap-shotting-快速持久化" class="headerlink" title="snap shotting 快速持久化"></a>snap shotting 快速持久化</h3><p>该持久化默认开启，一次性把redistribution中全部的数据保存一份存储在硬盘中，如果数据非常多（10-20G）就<font color="#FF0000">不适合频繁</font>进行该持久化操作。</p>
+<p>快照持久化在本地硬盘保留的数据备份文件：<br>dump.rdb</p>
+<p>save 900 1 #900秒内如果超过1个key被修改，则发起快照保存<br>save 300 10 #300秒内超过10个key被修改，发起快照保存<br>save 60 1000<br>数据修改的频率非常高，备份的频率也高<br>数据修改的频率低，备份的频率也低；</p>
+<h3 id="append-only-file"><a href="#append-only-file" class="headerlink" title="append only file"></a>append only file</h3><p>本质：把用户执行的每个’写‘指令（添加、修改、删除）都在文件中备份，还原是还是执行具体写指令而已</p>
+<p>为aof备份进行优化处理<br>对appendonly.aof文件内容进行优化压缩处理：（例如多个incr指令变为一个set指令）。</p>
+<p>快照备份与aof备份是一个互补的关系， 快照持久化是一个备份时间段跨度比较的持久化方法，而aof是一个精细备份。</p>
+
       
 
       
@@ -193,6 +234,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Redis数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -243,7 +295,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/24/Redis/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/15/Redis/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -257,18 +309,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/27/Linux/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/06/15/LeetCode刷题/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Linux
+          Leetcode
         
       </div>
     </a>
   
   
-    <a href="/2019/06/15/LeetCode刷题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Leetcode</div>
+    <a href="/2019/05/26/机器学习概述/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">机器学习引言</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -296,7 +348,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Redis" data-title data-url="http://yoursite.com/2019/07/24/Redis/"></div>
+	<div class="ds-thread" data-thread-key="Redis" data-title="Redis" data-url="http://yoursite.com/2019/06/15/Redis/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -319,7 +371,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2019/07/24/Redis/", 
+    url: "http://yoursite.com/2019/06/15/Redis/", 
     sourceId: "Redis",
     productKey: "true",
     target: "cloud-tie-wrapper"
@@ -455,15 +507,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Hexo + Github</a>
+                <a href="javascript:void(0)" class="js-tag color4">Redis数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -471,11 +519,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">Hexo + Github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
