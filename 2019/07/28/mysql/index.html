@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Mysql | Jingming Zhang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="燕十八Mysql讲解用到的表123456789101112131415161718192021222324create table class(id int primary key auto_increment,sname varchar(10) not null default &apos;&apos;,gender char(1) not null default &apos;&apos;,company varchar(20) n">
+  <meta name="description" content="燕十八Mysql讲解用到的表1234567891011121314151617181920212223242526create table class(id int primary key auto_increment,sname varchar(10) not null default &apos;&apos;,gender char(1) not null default &apos;&apos;,company varchar(2">
 <meta name="keywords" content="Mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql">
 <meta property="og:url" content="http://yoursite.com/2019/07/28/mysql/index.html">
 <meta property="og:site_name" content="Jingming Zhang">
-<meta property="og:description" content="燕十八Mysql讲解用到的表123456789101112131415161718192021222324create table class(id int primary key auto_increment,sname varchar(10) not null default &apos;&apos;,gender char(1) not null default &apos;&apos;,company varchar(20) n">
+<meta property="og:description" content="燕十八Mysql讲解用到的表1234567891011121314151617181920212223242526create table class(id int primary key auto_increment,sname varchar(10) not null default &apos;&apos;,gender char(1) not null default &apos;&apos;,company varchar(2">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-28T06:22:20.473Z">
+<meta property="og:updated_time" content="2019-07-28T06:25:35.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql">
-<meta name="twitter:description" content="燕十八Mysql讲解用到的表123456789101112131415161718192021222324create table class(id int primary key auto_increment,sname varchar(10) not null default &apos;&apos;,gender char(1) not null default &apos;&apos;,company varchar(20) n">
+<meta name="twitter:description" content="燕十八Mysql讲解用到的表1234567891011121314151617181920212223242526create table class(id int primary key auto_increment,sname varchar(10) not null default &apos;&apos;,gender char(1) not null default &apos;&apos;,company varchar(2">
   
     <link rel="alternative" href="/atom.xml" title="Jingming Zhang" type="application/atom+xml">
   
@@ -179,8 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="燕十八Mysql讲解用到的表"><a href="#燕十八Mysql讲解用到的表" class="headerlink" title="燕十八Mysql讲解用到的表"></a>燕十八Mysql讲解用到的表</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">class</span>(</span><br><span class="line"><span class="keyword">id</span> <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</span><br><span class="line">sname <span class="built_in">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">default</span> <span class="string">''</span>,</span><br><span class="line">gender <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">default</span> <span class="string">''</span>,</span><br><span class="line">company <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">default</span> <span class="string">''</span>,</span><br><span class="line">salary <span class="built_in">decimal</span>(<span class="number">6</span>,<span class="number">2</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">default</span> <span class="number">0.00</span>,</span><br><span class="line">fanbu <span class="built_in">smallint</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">default</span> <span class="number">0</span></span><br><span class="line">)<span class="keyword">engine</span> myisam <span class="keyword">charset</span> utf8;</span><br><span class="line">``` </span><br><span class="line"><span class="comment">## 往表中添加数据</span></span><br><span class="line">往那张表添加 calss</span><br><span class="line"></span><br><span class="line">添加哪几列 （id,sname,gender,company,salary,fanbu)</span><br><span class="line"></span><br><span class="line">分别添加什么值（1,'张三','男','百度',8888.67,234)</span><br><span class="line">``` sql</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span></span><br><span class="line">(<span class="keyword">id</span>,sname,gender,company,salary,fanbu)</span><br><span class="line"><span class="keyword">values</span>(<span class="number">1</span>,<span class="string">'张三'</span>,<span class="string">'男'</span>,<span class="string">'百度'</span>,<span class="number">8888.67</span>,<span class="number">234</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span></span><br><span class="line">(sname,gender,salary)</span><br><span class="line"><span class="keyword">values</span></span><br><span class="line">(<span class="string">'刀锋'</span>,<span class="string">'男'</span>,<span class="number">8876.33</span>);</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+        <h1 id="燕十八Mysql讲解用到的表"><a href="#燕十八Mysql讲解用到的表" class="headerlink" title="燕十八Mysql讲解用到的表"></a>燕十八Mysql讲解用到的表</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">class</span>(</span><br><span class="line"><span class="keyword">id</span> <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</span><br><span class="line">sname <span class="built_in">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">default</span> <span class="string">''</span>,</span><br><span class="line">gender <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">default</span> <span class="string">''</span>,</span><br><span class="line">company <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">default</span> <span class="string">''</span>,</span><br><span class="line">salary <span class="built_in">decimal</span>(<span class="number">6</span>,<span class="number">2</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">default</span> <span class="number">0.00</span>,</span><br><span class="line">fanbu <span class="built_in">smallint</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">default</span> <span class="number">0</span></span><br><span class="line">)<span class="keyword">engine</span> myisam <span class="keyword">charset</span> utf8;</span><br><span class="line">``` </span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">## 往表中添加数据</span></span><br><span class="line">往那张表添加 calss</span><br><span class="line"></span><br><span class="line">添加哪几列 （id,sname,gender,company,salary,fanbu)</span><br><span class="line"></span><br><span class="line">分别添加什么值（1,'张三','男','百度',8888.67,234)</span><br><span class="line">``` sql</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span></span><br><span class="line">(<span class="keyword">id</span>,sname,gender,company,salary,fanbu)</span><br><span class="line"><span class="keyword">values</span>(<span class="number">1</span>,<span class="string">'张三'</span>,<span class="string">'男'</span>,<span class="string">'百度'</span>,<span class="number">8888.67</span>,<span class="number">234</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span></span><br><span class="line">(sname,gender,salary)</span><br><span class="line"><span class="keyword">values</span></span><br><span class="line">(<span class="string">'刀锋'</span>,<span class="string">'男'</span>,<span class="number">8876.33</span>);</span><br></pre></td></tr></table></figure>
 <p>如果准备插入所有列，则可以不声明带插入的列<br>即，如果不声明插入的列，则理解为一次插入所有列<br>insert into class<br>values<br>(3,’李四’,’男’,’新浪’,9952.25,564)</p>
 <p>insert into class<br>(sname,company,salary)<br>values<br>(‘刘备’,’皇室成员’,15.28),<br>(‘孙策’,’江东集团’,56.34),<br>(‘曹操’,’宦官后裔’,88.56);</p>
 <p>——–update 改<br>改那张表: class<br>改哪几列： gender,company<br>改成什么值：’w’,’千聊’<br>在哪一行上生效：id = 6<br>update class<br>set fanbu = 123<br>where id=6;</p>
@@ -345,6 +344,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/09/05/剑指offer/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2019/07/27/Linux/" id="article-nav-older" class="article-nav-link-wrap">
@@ -539,15 +547,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Redis数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Hexo + Github</a>
+                <a href="javascript:void(0)" class="js-tag color4">Redis数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">coding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,11 +563,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">Hexo + Github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -568,6 +580,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
             
             <div class="clearfix"></div>
